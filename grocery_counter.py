@@ -1,55 +1,60 @@
-from tkinter import*
+from tkinter import *
+
+from tkinter import messagebox
 
 root = Tk()
+v=IntVar()
 
-root.title("Set 1")
+count =0
 
-root.geometry('400x500')
+d={}
+def inc():
+    global count
+    count += 1
+    v.set(count)
+   
+def dec():
+    global count
+    count -= 1
+    v.set(count)
+    print(v.get())
 
-def facebook():
+def add():
+    global d,count
+    
+    d[e.get()]=v.get()
+    print(d)
+    messagebox.showinfo('Grocery Cat',d)
+    
+def finish():
+    
+    root.destroy()
 
-    user.delete(0,END)
+e=Entry(root, width=40)
+e.grid(row=0,column=1,columnspan=3)
 
-    user.insert(0,"idk@facebook.com")
+label0 = Label (root, text='Please enter an item' )
+label0.grid(row=0,column=0)
 
-def linkedin():
+label1 = Label (root, text='Choose the quantity')
+label1.grid(row=1,column=0)   
+label = Label (root, textvariable =v, width=10 )
+label.grid(row=1,column=2)
+button1 = Button (root, text='-', fg='red', width=10, command=dec)
 
-    user.delete(0,END)
+button1.grid(row=1,column=3)
 
-    user.insert(0,"idk@linkedin.com")
+button2 = Button (root, text='+', fg='green', width=10,command=inc)
 
+button2.grid(row=1,column=1)
 
-def instagram():
+button3 = Button (root, text='ADD', fg='green',width=10,command=add)
 
-    user.delete(0,END)
-
-    user.insert(0,"idk@instagram.com")
-
-def twitter():
-
-    user.delete(0,END)
-
-    user.insert(0,"idk@twitter.com")
+button3.grid(row=2,column=1, columnspan=3)
 
 
-f = Button(root, text="Facebook", width=10,height=10,bg="blue",command=facebook)
+button3 = Button (root, text='FINISH',fg='red', width=10,command=finish)
 
-f.grid(row=0,column=0)
-
-l = Button(root, text="Linkedin", bg="red",width=10,height=10,command=linkedin)
-
-l.grid(row=0,column=1)
-
-i = Button(root, text="Instagram", bg="green",width=10,height=10,command=instagram)
-
-i.grid(row=1,column=0)
-
-t = Button(root, text="Twitter", bg="sky blue",width=10,height=10,command=twitter)
-
-t.grid(row=1,column=1)
-
-user = Entry(root,width=50)
-
-user.grid(row=2,column=0, columnspan=3)
+button3.grid(row=2,column=0)
 
 root.mainloop()
