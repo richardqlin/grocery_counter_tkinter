@@ -27,7 +27,7 @@ def add():
     messagebox.showinfo('Grocery Cat',d)
     
 def finish():
-    
+    messagebox.showinfo('Grocery Cat',d)
     root.destroy()
 
 e=Entry(root, width=40)
