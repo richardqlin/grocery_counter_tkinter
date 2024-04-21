@@ -20,7 +20,7 @@ def dec():
     print(v.get())
 
 def add():
-    global d,count
+    global d
     
     d[e.get()]=v.get()
     print(d)
